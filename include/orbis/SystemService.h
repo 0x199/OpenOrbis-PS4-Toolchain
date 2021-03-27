@@ -1,6 +1,8 @@
 #ifndef _SCE_SYSTEM_SERVICE_H_
 #define _SCE_SYSTEM_SERVICE_H_
 
+#include "_types/systemservice.h"
+
 #include <stdint.h>
 
 #ifdef __cplusplus 
@@ -52,11 +54,14 @@ void sceSystemServiceIsShellUiFgAndGameBgCpuMode();
 void sceSystemServiceKillApp();
 void sceSystemServiceKillLocalProcess();
 void sceSystemServiceKillLocalProcessForPsmKit();
-void sceSystemServiceLaunchApp();
+// reversed by idc
+int(*sceSystemServiceLaunchApp)(const char* titleId, const char* argv[], LaunchAppParam* param);
 void sceSystemServiceLaunchEventDetails();
 void sceSystemServiceLaunchTournamentsTeamProfile();
-void sceSystemServiceLaunchWebBrowser();
-void sceSystemServiceLoadExec();
+// reversed by cturt
+int(*sceSystemServiceLaunchWebBrowser)(const char *uri, void *);
+// reversed by flatz
+void sceSystemServiceLoadExec(const char* path, char* const argv[]);
 void sceSystemServiceNavigateToAnotherApp();
 void sceSystemServiceNavigateToGoBack();
 void sceSystemServiceNavigateToGoBackWithValue();
