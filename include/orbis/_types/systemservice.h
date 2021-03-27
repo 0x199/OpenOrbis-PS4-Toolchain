@@ -8,4 +8,4 @@ typedef struct _LaunchAppParam
 	int32_t app_attr;
 	int32_t enable_crash_report;
 	uint64_t check_flag;
-} LaunchAppParam
+} LaunchAppParam;
